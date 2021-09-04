@@ -1,0 +1,56 @@
+.sample {
+  border-color: blue;  
+  border-width: 1em;  
+  border-style: double;  
+  filter: blur(40px);
+  inline-size: 50vmin;
+  block-size: 35vmin;
+  background: linear-gradient(
+    to bottom right, 
+    hsl(150 100% 50%), 
+    hsl(190 100% 60%)
+  );
+  border-radius: 1rem;
+  position: relative;
+  transition: filter 1s;
+  opacity: 0.6;
+}
+.sample:hover {
+  transform: scale(1.3);
+  border-color: orange;
+  background: linear-gradient(
+    to bottom right, 
+    hsl(60, 100%, 50%), 
+    hsl(243, 100%, 63%)
+    );
+  filter: blur(0px);
+  opacity: 0.99;
+}
+.sample::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right, 
+    hsl(269, 100%, 50%), 
+    hsl(203, 100%, 50%)
+  );
+  z-index: -1;
+  transform: translateY(15%) scale(.85);
+  filter: blur(30px);
+}
+
+html {
+  block-size: 100%;
+}
+
+body {
+  background: black;
+  min-block-size: 100%;
+  min-inline-size: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  display: grid;
+  place-content: center;
+  font-family: system-ui, sans-serif;
+}
